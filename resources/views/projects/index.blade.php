@@ -16,6 +16,7 @@
     <td>
     {{ $project->title }}
 </td>
+
 <td>
     <div class="btn-group">
         <a href="{{ route('projects.edit', $project) }}" class="btn btn-primary">
@@ -27,6 +28,7 @@
         
     </div>
 </td>
+
 </div>
     
 @endforeach
