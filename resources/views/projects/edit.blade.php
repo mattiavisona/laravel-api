@@ -36,7 +36,6 @@
             @enderror
           </div>
         
-          <button class="text-uppercase btn-btn-primary rounded  " type="submit">modifica</button>
         
 
           <div class="form-check">
@@ -46,6 +45,9 @@
             @endforeach
                 
           </div>
+          
+          <button class="text-uppercase btn-btn-primary rounded  " type="submit">modifica</button>
+
       </form>
     </div>
   </div>
