@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="create">
+<div class="create ">
 
-    
-    <h1 class="pt-4 text-uppercase text-center">aggiungi del testo</h1>
-    
+    <div class="container">
+
+        <h1 class="pt-4 text-uppercase text-center">aggiungi del testo</h1>
+        
     
    
         
@@ -36,12 +37,10 @@
                 @endforeach
                     
             </div>
-
-            @error('technologies')
-                {{$message}}
-            @enderror
-
+            
+            
         </div>
+    </div>
         
     
     
