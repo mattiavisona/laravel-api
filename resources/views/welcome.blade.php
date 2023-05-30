@@ -19,6 +19,7 @@
         <a href="{{ route('projects.index') }}" class="btn btn-primary btn-lg" type="button">Clicca qui per i progetti</a>
     </div>
 </div>
+<h1>prova</h1>
 
 
 <div class="content">

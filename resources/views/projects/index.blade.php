@@ -35,7 +35,7 @@
 </table>
 
 
-<a href="{{ route('home') }}">HOME</a>
+<a href="{{ route('home') }}" class="btn btn-primary btn-lg" type="button">Torna alla home</a>
 @endsection
 
 
