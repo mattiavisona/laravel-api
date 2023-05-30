@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Technology;
+use Dotenv\Validator;
 
 class ProjectController extends Controller
 {
@@ -27,7 +29,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects/create');
+        $technologies = Technology::all();
+
+        return view('projects/create', compact('technologies'));
     }
 
     /**

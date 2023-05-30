@@ -8,8 +8,8 @@
     <h1 class="pt-4 text-uppercase text-center">aggiungi del testo</h1>
     
     
-    <form action="{{route('projects.store')}}" method="POST">
-        @csrf
+   
+        
         
         <div class="mb-3">
             <label class="text-uppercase" for="name">nome</label>
@@ -22,8 +22,28 @@
         </div>
         
         <button class="text-uppercase btn-btn-primary rounded  " type="submit">aggiungi</button>
+
+        <div class="mb-3 form-group">
+
+            <h4>
+                Tecnologie
+            </h4>
+
+            <div class="form-check">
+                @foreach ($technologies as $technology)
+                <input id="technology_{{$technology->id}}" name="technologies[]" type="checkbox">
+                <label for="technology_{{$technology->id}}"> {{$technology->name}} </label>
+                @endforeach
+                    
+            </div>
+
+            @error('technologies')
+                {{$message}}
+            @enderror
+
+        </div>
         
-    </form>
+    
     
 </div>
   
