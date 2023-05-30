@@ -7,7 +7,8 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Technology;
-use Dotenv\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -38,11 +39,28 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProjectRequest  $request
+     * @param  \App\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProjectRequest $request)
+    public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:150',
+            'description' => 'required|min:10',
+        ])->validate();
+
+        $project = new Project();
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->save();
+
+        if (array_key_exists('technologies', $request->all())) {
+            $project->technologies()->sync($request->technologies);
+        } else {
+            $project->technologies->detach();
+        }
+
+        return redirect()->route('projects.index');
     }
 
     /**
